@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9797508040343787"
+    crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FG22JV74V5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FG22JV74V5');
+    </script>
+    <!-- Google tag (gtag.js) -->
+     
+    <!--Themes -->
+    <style id="theme"></style>
+    <link rel="stylesheet" href="./css/main.css">
+
+    <script src="./js/themes.js"></script>
+    <!-- -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/logo.png">
+    <title>| Equinox Games - Games |</title>
+</head>
+<body class="overflow-hidden">
+    <div class="flex flex-column center full">
+        <div style="margin-top: 20px;" class="bigdiv navbar flex center flex-grow text-align">
+            <a href="./">Home</a>
+            <a href="./methods.html">Methods</a>
+            <a href="./apps.html">Apps</a>
+            <a href="https://discord.gg/nX6sWSa9HE" target="_blank">Discord</a>
+            <a href="./browser.html">Browser</a>
+            <a href="./settings.html">Settings</a>
+        </div>
+        <iframe id="gameFrame" style="border-radius: 50px;" class="bigdiv expand-height" src="data:text/html;base64,PHN0eWxlPi5jb250ZW50e3dpZHRoOjEwMHZ3O2hlaWdodDoxMDB2aDtkaXNwbGF5OmZsZXg7anVzdGlmeS1jb250ZW50OmNlbnRlcjthbGlnbi1pdGVtczpjZW50ZXI7fSp7Y29sb3I6d2hpdGU7bWFyZ2luOjA7cGFkZGluZzowO2JvcmRlcjowO2ZvbnQtZmFtaWx5OnNhbnMtc2VyaWY7fTwvc3R5bGU+PGRpdiBjbGFzcz0iY29udGVudCI+PGgxIHN0eWxlPSJmb250LXNpemU6IDQ4cHg7Ij5Mb2FkaW5nLi4uPC9oMT48L2Rpdj4="></iframe>
+    </div>
+    <br>
+</body>
+<script src="./json/games.js"></script>
+<script>
+const gameFrame = document.getElementById('gameFrame')
+
+const urlParams = new URLSearchParams(window.location.search)
+const gameUrl = urlParams.get('game');
+const type = urlParams.get('type')
+
+function loadGame(){
+    if (type == "html"){
+        gameFrame.src = "./games" + gameUrl
+    } else if (type == "flash"){
+        gameFrame.src = `./embeds/ruffle.html?game=${gameUrl}`
+    } else{
+        gameFrame.src = `./embeds/emujs/index.html?game=${gameUrl}&core=${type}`
+    }
+}
+
+loadGame()
+</script>
+<script>if(sessionStorage.getItem('login') === null){ window.location = window.location.origin; }</script>
+</html>

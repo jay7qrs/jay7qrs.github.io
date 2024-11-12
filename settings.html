@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9797508040343787"
+    crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FG22JV74V5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FG22JV74V5');
+    </script>
+    <!-- Google tag (gtag.js) -->
+     
+    <!--Themes -->
+    <style id="theme"></style>
+    <link rel="stylesheet" href="./css/main.css">
+
+    <script src="./js/themes.js"></script>
+    <!-- -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/logo.png">
+    <title>| Equinox Games - Settings |</title>
+</head>
+<body>
+    <div class=" flex flex-column center-horizontal">
+        <div style="margin-top: 20px;" class="bigdiv navbar flex center flex-grow text-align">
+            <a href="./">Home</a>
+            <a href="./methods.html">Methods</a>
+            <a href="./apps.html">Apps</a>
+            <a href="https://discord.gg/nX6sWSa9HE" target="_blank">Discord</a>
+            <a href="./browser.html">Browser</a>
+            <a href="./settings.html">Settings</a>
+        </div>
+        <div id="gameFrame" style="border-radius: 50px;" class="bigdiv expand-height flex center-horizontal flex-column">
+            <h1 style="font-weight: 600;">Settings</h1>
+            <br>
+            <button onclick="window.location.reload()">Refresh</button>
+            <br>
+            <h1 style="font-weight: 600;">Themes:</h1>
+            <br>
+            <h3>
+                [DEBUG] Enable/Disable ALL Themes: <input id="themeEnabled" onclick="toggleTheme()" type="checkbox">
+            </h3>
+            <br>
+            <div class="themes">
+                <button onclick="switchTheme('classic')" style="background-color: #474747; color: white;">Classic</button>
+                <button onclick="switchTheme('shadow')"style="background-color: #1d1d1d; color: white;">Night</button>
+                <button onclick="switchTheme('bright')"style="background-color: white; color: black;">Bright</button>
+                <button onclick="switchTheme('porpol')"style="background-color: #8644a5; color: white;">'Porpol'</button>
+            </div>
+            <br>
+            <h1 style="font-weight: 600;">Cloaking</h1>
+            <br>
+            <h3>Cloak on login (Auto cloaks the entire site once you 'log in') <input id="cloakOnLogin" onclick="cloakOnLogin()" type="checkbox"></h3>
+        </div>
+    </div>
+    <br>
+</body>
+<script>
+function switchTheme(value){
+    localStorage.setItem('theme',value)
+    console.log(`Set theme to ${localStorage.getItem('theme')}`)
+    window.location.reload()
+}
+
+function toggleTheme(){
+    localStorage.setItem('theme_enabled',document.getElementById('themeEnabled').checked)
+    console.log(`Set theme_enabled to ${localStorage.getItem('theme_enabled')}`)
+}
+
+function cloakOnLogin(){
+    localStorage.setItem('cloakOnLogIn',document.getElementById('cloakOnLogin').checked)
+    console.log(`Set cloakOnLogIn to ${localStorage.getItem('cloakOnLogIn')}`)
+}
+</script>
+<script>if(sessionStorage.getItem('login') === null){ window.location = window.location.origin; }</script>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9797508040343787"
+    crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FG22JV74V5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FG22JV74V5');
+    </script>
+    <!-- Google tag (gtag.js) -->
+
+    <!--Themes -->
+    <style id="theme"></style>
+    <link rel="stylesheet" href="./css/main.css">
+
+    <script src="./js/themes.js"></script>
+    <!-- -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="favicon" rel="icon" href="https://clever.com/favicon.ico">
+    <title>Clever</title>
+</head>
+<body style="overflow: hidden;">
+
+    <iframe id="fakeClever" src="./fake-clever.html" style="z-index: 999999; position: absolute; padding: 0; margin: 0; width: 100vw; height: 100vh;"></iframe>
+
+    <div id="content" style="display: none;" class="flex flex-column center-horizontal">
+        <div style="margin-top: 20px;" class="bigdiv navbar flex center flex-grow text-align">
+            <a href="./">Home</a>
+            <a href="./methods.html">Methods</a>
+            <a href="./apps.html">Apps</a>
+            <a href="https://discord.gg/nX6sWSa9HE" target="_blank">Discord</a>
+            <a href="./browser.html">Browser</a>
+            <a href="./settings.html">Settings</a>
+        </div>
+        <div class="bigdiv flex center flex-column">
+
+            <img src="./images/logo.png" width="150px" height="150px">
+
+            <h1 class="title">Equinox Games</h1>
+            <h3>Scroll ↓ down ↓ for games!</h3>
+            <h3>Over <span id="numberOfGames">300</span> games!</h3>
+
+            <div style="height: 20px;"></div>
+
+            <h1>Popular Games:</h1>
+
+            <div style="flex-wrap: wrap;" class="pop-games flex center fill-percent">
+                <a href="./game.html?game=/html/basketball-stars/index.html&type=html">
+                    <div class="imgHolder flex center flex-column">
+                        <img src="./images/thumbs/basketball-stars.png">
+                        <p>Basketball Stars</p>
+                    </div>
+                </a>
+                <a href="./game.html?game=/flash/bloxorz.swf&type=flash">
+                    <div class="imgHolder flex center flex-column">
+                        <img src="./images/thumbs/bloxorz.png">
+                        <p>Bloxorz</p>
+                    </div>
+                </a>
+                <a href="./game.html?game=/html/cookie/index.html&type=html">
+                    <div class="imgHolder flex center flex-column">
+                        <img src="./images/thumbs/cookie-clicker.png">
+                        <p>Cookie Clicker</p>
+                    </div>
+                </a>
+                <a href="./game.html?game=/html/slope/index.html&type=html">
+                    <div class="imgHolder flex center flex-column">
+                        <img src="./images/thumbs/slope.png">
+                        <p>Slope</p>
+                    </div>
+                </a>
+                <a href="./game.html?game=/flash/Toss%20The%20Turtle.swf&type=flash">
+                    <div class="imgHolder flex center flex-column">
+                        <img src="./images/thumbs/tosstheturtle.png">
+                        <p>Toss the Turtle</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        
+        <div id="games" style="padding: 20px; padding-bottom: 20px; flex-direction: row; flex-wrap: wrap;" class="flex bigdiv center flex-column">
+
+            <!-- EXAMPLE GAME
+
+            <div class="small-box">
+                <img src="https://2048game.com/favicon.ico">
+                <h1>2048</h1>
+                <p>
+                    Combine tiles of the same number to reach the elusive 2048 tile in this addictive puzzle game.
+                </p>
+            </div>
+
+            -->
+
+            <div class="flex center fill-width">
+                
+                <input  id="gameSearch" class="search" placeholder="Search the games">
+                <button style="max-width: fit-content;" class="search" onclick="search()">Search</button>
+
+            </div>
+
+        </div>
+
+        <button style="margin: 15px;" class="search" onclick="loadGamesBatch()">FORCE LOAD MORE GAMES</button>
+
+        <div class="bigdiv navbar flex center" style="margin: 15px;">
+            <p>Made by Jobi#8313 Join the <a href="https://discord.gg/nX6sWSa9HE">discord</a>!</p>
+        </div>
+
+    </div>
+    <br>
+</body>
+<script>
+    //Login system shi
+
+    const iframe = document.getElementById('fakeClever');
+    const sc = new URLSearchParams(window.location.search).get('sc');
+    if (sc === "true" || sessionStorage.getItem('login') === 'true') {
+    	console.log('Skipping Cloak...')
+    	document.getElementById('content').style = "display: flex;"
+    	window.sessionStorage.setItem('login', 'true');
+    	iframe.remove()
+    	document.title = "| Equinox Games - Home |"
+        document.getElementById('favicon').href = "./images/logo.png"
+    	document.body.style = "overflow:scroll;"
+    }
+    iframe.addEventListener('load', () => {
+    	const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    	if (iframeDocument) {
+    		iframeDocument.addEventListener('keydown', (e) => {
+    			if (e.key === "Enter") {
+    				const schoolInput = iframeDocument.getElementById('school-name');
+    				if (schoolInput && schoolInput.value.toLowerCase() === "equinox") {
+    					if (localStorage.getItem('cloakOnLogIn') === 'true') {
+    						win = window.open();
+    						win.document.body.style.margin = '0';
+    						win.document.body.style.height = '100vh';
+    						var iframe = win.document.createElement('iframe');
+    						iframe.style.border = 'none';
+    						iframe.style.width = '100%';
+    						iframe.style.height = '100%';
+    						iframe.style.margin = '0';
+    						iframe.src = window.location.origin + "?sc=true";
+    						win.document.body.appendChild(iframe);
+    						window.location = "https://www.google.com"
+    					} else{
+                            window.sessionStorage.setItem('login', 'true');
+    					    window.location.reload()
+                        }
+    				}
+    			}
+    		});
+    	}
+    });
+</script>
+<script src="./json/games.js"></script>
+<script src="./js/game-manager.js"></script>
+</html>

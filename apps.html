@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9797508040343787"
+    crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FG22JV74V5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FG22JV74V5');
+    </script>
+    <!-- Google tag (gtag.js) -->
+     
+    <!--Themes -->
+    <style id="theme"></style>
+    <link rel="stylesheet" href="./css/main.css">
+
+    <script src="./js/themes.js"></script>
+    <!-- -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/logo.png">
+    <title>| Equinox Games - Apps |</title>
+</head>
+<body>
+    <div class=" flex flex-column center-horizontal">
+        <div style="margin-top: 20px;" class="bigdiv navbar flex center flex-grow text-align">
+            <a href="./">Home</a>
+            <a href="./methods.html">Methods</a>
+            <a href="./apps.html">Apps</a>
+            <a href="https://discord.gg/nX6sWSa9HE" target="_blank">Discord</a>
+            <a href="./browser.html">Browser</a>
+            <a href="./settings.html">Settings</a>
+        </div>
+        
+        <div id="apps" style="padding: 20px; padding-bottom: 20px; flex-direction: row; flex-wrap: wrap;" class="flex bigdiv center flex-column">
+
+            <!-- EXAMPLE GAME
+
+            <div class="small-box">
+                <img src="https://2048game.com/favicon.ico">
+                <h1>2048</h1>
+                <p>
+                    Combine tiles of the same number to reach the elusive 2048 tile in this addictive puzzle game.
+                </p>
+            </div>
+
+            -->
+            <h2 style="text-align: center; margin: 10px;">Apps aren't guaranteed to work! Sorry if their broken or can't do something your wanting. Try making a bug report in the discord!</h2>
+            <div class="flex center fill-width">
+                
+                <input  id="appSearch" class="search" placeholder="Search the apps">
+                <button style="max-width: fit-content;" class="search" onclick="search()">Search</button>
+
+            </div>
+
+        </div>
+
+        <button style="margin: 15px;" class="search" onclick="loadGamesBatch()">FORCE LOAD MORE GAMES</button>
+
+        <div class="bigdiv navbar flex center" style="margin: 15px;">
+            <p>Made by Jobi#8313 Join the <a href="https://discord.gg/nX6sWSa9HE">discord</a>!</p>
+        </div>
+
+    </div>
+    <br>
+</body>
+<script src="./json/apps.js"></script>
+<script src="./js/app-manager.js"></script>
+<script>if(sessionStorage.getItem('login') === null){ window.location = window.location.origin; }</script>
+</html>

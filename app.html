@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9797508040343787"
+    crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FG22JV74V5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FG22JV74V5');
+    </script>
+    <!-- Google tag (gtag.js) -->
+     
+    <!--Themes -->
+    <style id="theme"></style>
+    <link rel="stylesheet" href="./css/main.css">
+
+    <script src="./js/themes.js"></script>
+    <!-- -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/logo.png">
+    <title>| Equinox Games - App |</title>
+
+    <script src="./cw/uv.bundle.js" defer></script>
+    <script src="./cw/uv.config.js" defer></script>
+    <script src="./cw/js/register-sw.js" defer></script>
+    <script src="./cw/js/search.js" defer></script>
+    <script src="./cw/js/index.js" defer></script>
+</head>
+<body class="overflow-hidden">
+    <div class="flex flex-column center full">
+        <div style="margin-top: 20px;" class="bigdiv navbar flex center flex-grow text-align">
+          <a href="./">Home</a>
+            <a href="./methods.html">Methods</a>
+            <a href="./apps.html">Apps</a>
+            <a href="https://discord.gg/nX6sWSa9HE" target="_blank">Discord</a>
+            <a href="./browser.html">Browser</a>
+            <a href="./settings.html">Settings</a>
+        </div>
+        <iframe id="uvIframe" style="border-radius: 50px;" class="bigdiv expand-height" src=""></iframe>
+    </div>
+    <br>
+</body>
+<script>
+const appFrame = document.getElementById('uvIframe')
+
+const urlParams = new URLSearchParams(window.location.search)
+const appUrl = urlParams.get('url');
+
+const xorEncode = {
+    encode(str) {
+        if (!str) return str;
+        return encodeURIComponent(
+            str
+                .toString()
+                .split('')
+                .map((char, ind) =>
+                    ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
+                )
+                .join('')
+        );
+    }
+};
+
+function loadApp(){
+  appFrame.src = "/cw/" + xorEncode.encode(appUrl)
+}
+
+loadApp()
+</script>
+<script>if(sessionStorage.getItem('login') === null){ window.location = window.location.origin; }</script>
+</html>
