@@ -122,14 +122,14 @@
 
     const iframe = document.getElementById('fakeClever');
     const sc = new URLSearchParams(window.location.search).get('sc');
-    if (sc === "true" || sessionStorage.getItem('login') === 'true' || window.location.origin === null) {
+    if (sc === "true" || sessionStorage.getItem('login') === 'true') {
     	console.log('Skipping Cloak...')
     	document.getElementById('content').style = "display: flex;"
-    	window.sessionStorage.setItem('login', 'true');
     	iframe.remove()
     	document.title = "| Equinox Games - Home |"
         document.getElementById('favicon').href = "./images/logo.png"
     	document.body.style = "overflow:scroll;"
+        if (!window.location.origin === null){ window.sessionStorage.setItem('login', 'true'); }
     }
     iframe.addEventListener('load', () => {
     	const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
