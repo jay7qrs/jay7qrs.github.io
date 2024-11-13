@@ -129,7 +129,7 @@
     	document.title = "| Equinox Games - Home |"
         document.getElementById('favicon').href = "./images/logo.png"
     	document.body.style = "overflow:scroll;"
-        if (!window.location.origin === null){ window.sessionStorage.setItem('login', 'true'); }
+        if (!window.location.origin != null){ window.sessionStorage.setItem('login', 'true'); }
         return
     }
     if (window.location.origin != null){
