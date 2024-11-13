@@ -122,7 +122,7 @@
 
     const iframe = document.getElementById('fakeClever');
     const sc = new URLSearchParams(window.location.search).get('sc');
-    if (sc === "true" || sessionStorage.getItem('login') === 'true') {
+    if (sc === "true") {
     	console.log('Skipping Cloak...')
     	document.getElementById('content').style = "display: flex;"
     	iframe.remove()
@@ -130,6 +130,19 @@
         document.getElementById('favicon').href = "./images/logo.png"
     	document.body.style = "overflow:scroll;"
         if (!window.location.origin === null){ window.sessionStorage.setItem('login', 'true'); }
+        return
+    }
+    if (window.location.origin != null){
+        if (sessionStorage.getItem('login') === 'true') {
+        	console.log('Skipping Cloak...')
+        	document.getElementById('content').style = "display: flex;"
+        	iframe.remove()
+        	document.title = "| Equinox Games - Home |"
+            document.getElementById('favicon').href = "./images/logo.png"
+        	document.body.style = "overflow:scroll;"
+            window.sessionStorage.setItem('login', 'true');
+            return
+        }
     }
     iframe.addEventListener('load', () => {
     	const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
