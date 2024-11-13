@@ -119,29 +119,25 @@
 </body>
 <script>
     //Login system shi
-
     const iframe = document.getElementById('fakeClever');
     const sc = new URLSearchParams(window.location.search).get('sc');
-    if (sc === "true") {
-    	console.log('Skipping Cloak...')
+
+    function login(){
+        console.log('Skipping Cloak...')
     	document.getElementById('content').style = "display: flex;"
     	iframe.remove()
     	document.title = "| Equinox Games - Home |"
         document.getElementById('favicon').href = "./images/logo.png"
     	document.body.style = "overflow:scroll;"
         if (!window.location.origin != null){ window.sessionStorage.setItem('login', 'true'); }
-        return
+    }
+
+    if (sc === "true") {
+    	
     }
     if (window.location.origin != null){
         if (sessionStorage.getItem('login') === 'true') {
-        	console.log('Skipping Cloak...')
-        	document.getElementById('content').style = "display: flex;"
-        	iframe.remove()
-        	document.title = "| Equinox Games - Home |"
-            document.getElementById('favicon').href = "./images/logo.png"
-        	document.body.style = "overflow:scroll;"
-            window.sessionStorage.setItem('login', 'true');
-            return
+        	login()
         }
     }
     iframe.addEventListener('load', () => {
