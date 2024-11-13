@@ -1,3 +1,18 @@
+//Fallback, just in case shi don't load (Happens a lot with data urls, cuz they buggy asf)
+
+document.getElementById('theme').innerHTML = `
+        :root{
+            --background-color-dark: #121212;
+            --background-color-light: #1a1a1a;
+            --content-background: #2b2b2b;
+            --content-background-light: #474747;
+            --accent-color: #efefef;
+            --text-color: #ffffff;
+            --div-size: 90%;
+            --game-size: 90%;
+        }
+        `
+
 let theme = window.localStorage.getItem('theme');
 let theme_enabled = window.localStorage.getItem('theme_enabled')
 let themeElement = document.getElementById('theme')
