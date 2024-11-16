@@ -1,6 +1,25 @@
 /*For making custom themes, or modding current ones. Paste them up here.*/
+/* Define color categories */
+:root {
+    --background-color-light: #f0f0f0;  /* Light background color */
+    --background-color-dark: #333;      /* Dark background color */
+    --text-color: #222;                 /* Main text color */
+    --accent-color: #ff5733;            /* Accent color (buttons, highlights) */
+    --content-background-light: #fff;   /* Light background for content */
+    --content-background: #e0e0e0;      /* Default background for content */
+    --button-background: #007bff;       /* Button color */
+    --button-hover-background: #0056b3; /* Button hover color */
+    --link-color: #1a73e8;              /* Link color */
+    --link-hover-color: #1155cc;         /* Link hover color */
+    --border-color: #ddd;               /* Border color */
+    --input-background: #f8f9fa;        /* Input fields background */
+    --input-border: #ccc;               /* Input field border color */
+    --search-background: #e9ecef;       /* Search bar background */
+    --search-placeholder: #aaa;         /* Search bar placeholder color */
+}
 
-*{
+/* Global resets and defaults */
+* {
     user-select: none;
     margin: 0;
     padding: 0;
@@ -11,41 +30,58 @@
     color: var(--text-color);
 }
 
-textarea:focus, input:focus{
-    outline: none;
-}
-
-::-webkit-scrollbar{
-    display: none;
-}
-
-body{
+body {
     overflow-x: hidden;
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-image: linear-gradient(var(--background-color-light),var(--background-color-dark))
+    background-image: linear-gradient(var(--background-color-light), var(--background-color-dark));
 }
 
-a{
+a {
+    color: var(--link-color);
     font-weight: bold;
+    text-decoration: none;
 }
 
-button{
+a:hover {
+    color: var(--link-hover-color);
+}
+
+button {
     padding: 20px;
     font-size: 24px;
     box-shadow: 0px 0px 3px 2px var(--accent-color);
-    background-color: var(--content-background-light);
+    background-color: var(--button-background);
+    color: #fff;
     margin: 5px;
     border-radius: 20px;
 }
 
-.spacer{
-    height: 50px;
+button:hover {
+    background-color: var(--button-hover-background);
 }
 
-.bigdiv{
+.search {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    background-color: var(--search-background);
+    font-size: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 3px 2px var(--accent-color);
+    color: var(--text-color);
+}
+
+.search::placeholder {
+    font-size: 20px;
+    color: var(--search-placeholder);
+}
+
+.bigdiv {
     box-shadow: 0px 0px 3px 2px var(--accent-color);
     width: var(--div-size);
     background-color: var(--content-background);
@@ -54,76 +90,14 @@ button{
     margin: 20px;
 }
 
-.navbar{
-    margin: 0px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
-
-.title{
-    font-size: 48px;
-    font-weight: 600;
-}
-
-.text-align{
-    text-align: center;
-}
-
-.gameFrame{
-    overflow: hidden;
-}
-
-.imgButton{
+.imgButton {
     padding: 10px;
     background-color: var(--content-background-light);
     border-radius: 20px;
     box-shadow: 0px 0px 3px 2px var(--accent-color);
 }
 
-/* SEARCH */
-.search{
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 10px;
-    text-align: center;
-    width: 300px;
-    background-color: var(--content-background-light);
-    font-size: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 3px 2px var(--accent-color);
-}
-
-.search::placeholder{
-    font-size: 20px;
-    color: var(--text-color);
-}
-/* SEARCH */
-
-/* POPULAR GAMES */
-.pop-games img{
-    margin: 10px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 3px 2px var(--accent-color);
-    height: 170px;
-    width: 170px;
-    position: relative;
-}
-
-.imgHolder{
-    margin: 10px;
-    box-shadow: 0px 0px 3px 2px var(--accent-color);
-    border-radius: 20px;
-    padding: 2px;
-    background-color: var(--content-background-light);
-}
-
-.imgHolder *{
-    font-weight: 500;
-}
-/* POPULAR GAMES */
-
-/* GAMES BOXES */
-.small-box{
+.small-box {
     margin: 20px;
     padding: 10px;
     text-align: left;
@@ -134,78 +108,80 @@ button{
     border-radius: 25px;
 }
 
-.small-box p{
+.small-box p {
     font-size: 16px;
 }
 
-.small-box img{
+.small-box img {
     box-shadow: 0px 0px 3px 2px var(--accent-color);
     border-radius: 10px;
     height: 50px;
     width: 50px;
 }
-/* GAMES BOXES */
 
-/* FILL */
-.expand-width{
-    width: 100%;
+/* Popular Games */
+.pop-games img {
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 3px 2px var(--accent-color);
+    height: 170px;
+    width: 170px;
+    position: relative;
 }
 
-.expand-height{
-    height: 100%;
+.imgHolder {
+    margin: 10px;
+    box-shadow: 0px 0px 3px 2px var(--accent-color);
+    border-radius: 20px;
+    padding: 2px;
+    background-color: var(--content-background-light);
 }
 
-.overflow-hidden{
-    overflow: hidden;
-}
-
-.full{
-    width: 100vw;
-    height: 100vh;
-}
-
-.fill-percent{
-    width: 100%;
-    height: 100%;
-}
-
-.fill-width{
-    width: 100%;
-}
-
-.fill-height{
-    height: 100%;
-}
-/* FILL */
-
-
-/* FLEX */
-.flex{
+/* Flexbox classes */
+.flex {
     display: flex;
 }
 
-.flex-grow *{
-    flex-grow: 0.1;
-}
-
-.center{
+.center {
     justify-content: center;
     align-items: center;
 }
 
-.center-horizontal{
+.center-horizontal {
     align-items: center;
 }
 
-.center-vertical{
+.center-vertical {
     justify-content: center;
 }
 
-.flex-column{
+.flex-column {
     flex-direction: column;
 }
 
-.flex-row{
+.flex-row {
     flex-direction: row;
 }
-/* FLEX */
+
+/* Input and search styling */
+textarea:focus, input:focus {
+    outline: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Custom scrollbar (optional) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--content-background-light);
+}
